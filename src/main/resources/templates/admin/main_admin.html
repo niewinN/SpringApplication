@@ -6,9 +6,10 @@
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/admin.css">
 
 </head>
-<body>
+<body onload="successfullyLogin()">
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -22,9 +23,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/index}">Home</a>-->
+<!--                </li>-->
 
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
@@ -37,9 +38,13 @@
 <!--                </li>-->
 
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                    <a class="nav-link" th:inline="text" th:href="@{/index}" onclick="successfullyLogout()" value="Sign Out" style="color:orange;">Wyloguj <b
                             style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
                 </li>
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/index}">Wyloguj</a>-->
+<!--                </li>-->
 
             </ul>
         </div>
@@ -49,51 +54,48 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-10 mt-5">
-            <form method="post" th:action="@{/index}">
+        <div class="admin-box">
+            <form class="admin-form" method="post" th:action="@{/index}">
                 <div class="form-group">
-                    <label style="font-size:30px" th:inline="text">Welcome <a
-                            style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
-                        to the main page!</label>
-                    <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
+                    <label style="font-size:30px; font-weight: bold" th:inline="text">Witaj <a
+                            style="color:orange; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
+                        w systemie zarządzania!</label>
                 </div>
 
-                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
-                </button>
+<!--                <button class="btn btn-primary admin-btn" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout-->
+<!--                </button>-->
             </form>
         </div>
 
+
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-admin">
+            <a class="link-admin" th:href="@{/empl_management}">Zarządzaj pracownikami</a></button>
+
+
+
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-admin">
+                <a class="link-admin" th:href="@{/customer_management}">Zarządzaj klientami</a></button>
+
+
+
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-admin">
+                <a class="link-admin" th:href="@{/sauna_management}">Zarządzaj saunami</a></button>
+
+
+
+
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-admin">
+                <a class="link-admin" th:href="@{/service_management}">Zarządzaj usługami</a></button>
+
+
+
+
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-admin">
+                <a class="link-admin" th:href="@{/address_management}">Zarządzaj adresami</a></button>
+
     </div>
 
-    <div class="container">
-        <a th:href="@{/empl_management}">
-            <button class="btn btn-outline-">Zarządzaj pracownikami</button>
-        </a>
-    </div>
 
-    <div class="container">
-        <a th:href="@{/customer_management}">
-            <button class="btn btn-outline-">Zarządzaj klientami</button>
-        </a>
-    </div>
-
-    <div class="container">
-        <a th:href="@{/sauna_management}">
-            <button class="btn btn-outline-">Zarządzaj saunami</button>
-        </a>
-    </div>
-
-    <div class="container">
-        <a th:href="@{/service_management}">
-            <button class="btn btn-outline-">Zarządzaj usługami</button>
-        </a>
-    </div>
-
-    <div class="container">
-        <a th:href="@{/address_management}">
-            <button class="btn btn-outline-">Zarządzaj adresami</button>
-        </a>
-    </div>
 
 </div>
 

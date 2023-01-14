@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 //import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -82,19 +83,19 @@ public class AppController implements WebMvcConfigurer {
             return "index";
         }
 
-        @RequestMapping("/main_user")
-        public String kutas(Model model) {
-            List<Client> listClient = dao.list();
-            model.addAttribute("listClient", listClient);
-            return "user/main_user";
-        }
-
-        @RequestMapping("/main_admin")
-        public String kutas3(Model model) {
-            List<Client> listClient = dao.list();
-            model.addAttribute("listClient", listClient);
-            return "admin/main_admin";
-        }
+//        @RequestMapping("/main_user")
+//        public String kutas(Model model) {
+//            List<Client> listClient = dao.list();
+//            model.addAttribute("listClient", listClient);
+//            return "user/main_user";
+//        }
+//
+//        @RequestMapping("/main_admin")
+//        public String kutas3(Model model) {
+//            List<Client> listClient = dao.list();
+//            model.addAttribute("listClient", listClient);
+//            return "admin/main_admin";
+//        }
 
 //        CUSTOMER MANAGEMENT
 

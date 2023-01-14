@@ -1,0 +1,51 @@
+.admin-form {
+    margin-bottom: 5vh;
+}
+
+.admin-box {
+    width: 100%;
+    margin-top: 4vh;
+}
+
+.admin-btn {
+    padding: 10px 30px;
+    background-color: #343A40;
+}
+
+.admin-btn--text {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.btn-admin {
+    margin-bottom: 3vh;
+    background-color: orange;
+    padding: 20px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color .3s, color .3s, border .3s, box-shadow .3s;
+    box-shadow: 0 0 5px 5px #343A40;
+    border: 2px solid transparent;
+}
+
+.btn-admin:hover {
+    background-color: #343A40;
+    border: 2px solid #343A40;
+    box-shadow: 0 0 5px 5px orange;
+}
+
+.btn-admin:hover .link-admin {
+    color: orange;
+    text-decoration: none;
+}
+
+.link-admin {
+    color: #343A40;
+    text-decoration: none;
+    padding: 25px 200px;
+}

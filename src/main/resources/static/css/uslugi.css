@@ -1,20 +1,19 @@
-.carousel {
-    height: 50vh;
+html {
+    font-size: 62.5%
 }
 
-.services-box {
-    padding: 3em;
+.carousel-img {
+    max-height: 70vh;
+    margin: 0 auto;
+    border: 5px solid orange;
+    filter: brightness(0.5);
 }
 
-.carousel .carousel-item {
-  height: 500px;
-  position: relative;
+.carousel-title {
+    font-size: 4rem;
+    color: orange;
 }
 
-.carousel-item img {
-    position: absolute;
-    object-fit: cover;
-    top: 0;
-    left: 0;
-    min-height: 500px;
+.carousel-text {
+    font-size: 2rem;
 }

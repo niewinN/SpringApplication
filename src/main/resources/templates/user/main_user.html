@@ -7,9 +7,10 @@
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/admin.css">
 
 </head>
-<body>
+<body onload="successfullyLogin()">
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -23,9 +24,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/index}">Home</a>-->
+<!--                </li>-->
 
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
@@ -38,7 +39,7 @@
 <!--                </li>-->
 
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                    <a class="nav-link" th:inline="text" th:href="@{/index}" onclick="successfullyLogout()" value="Sign Out" style="color:orange;">Wyloguj <b
                             style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
                 </li>
 
@@ -50,57 +51,40 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-10 mt-5">
-            <form method="post" th:action="@{/index}">
+        <div class="admin-box">
+            <form class="admin-form" method="post" th:action="@{/index}">
                 <div class="form-group">
-                    <label style="font-size:30px" th:inline="text">Welcome <a
-                            style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
-                        to the main page!</label>
-                    <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
+                    <label style="font-size:30px; font-weight: bold" th:inline="text">Witaj <a
+                            style="color:orange; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
+                        w systemie zarządzania!</label>
                 </div>
-
-                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
-                </button>
             </form>
         </div>
-
     </div>
 
+    <button type="button" class="btn btn-primary btn-lg btn-block btn-admin">
+        <a class="link-admin" th:href="@{/customer_management}">Edytuj podstawowe dane</a></button>
 
 
-    <div align="center">
-        <h1>Sales Records</h1>
 
-        <a th:href="@{/new_form}">
-            <button class="btn btn-outline-">Dodaj</button>
-        </a>
+    <button type="button" class="btn btn-primary btn-lg btn-block btn-admin">
+        <a class="link-admin" th:href="@{/new_address}">Edytuj swój adres</a></button>
 
-        <table border="1" cellpadding="10">
+<!--    <div class="container">-->
+<!--        <a th:object="${client}" th:href="@{'/new_customer/' + ${nr_klienta}}">-->
+<!--            <button class="btn btn-outline-">Edytuj podstawowe dane</button>-->
+<!--        </a>-->
+<!--    </div>-->
 
-            <thead>
-            <tr>
-                <th>Nr</th>
-                <th>Telefon</th>
-                <th>Email</th>
-                <th>Nr_sauny</th>
-                <th>Nr_adresu</th>
+<!--    <div class="container">-->
+<!--        <a th:href="@{/new_address}">-->
+<!--            <button class="btn btn-outline-">Edytuj swój adres</button>-->
+<!--        </a>-->
+<!--    </div>-->
 
-            </tr>
-            </thead>
 
-            <tbody>
-            <tr th:each="client : ${listClient}">
-                <td th:text="${client.nr_klienta}">Nr_klienta</td>
-                <td th:text="${client.numer_telefonu}">Telefon</td>
-                <td th:text="${client.email}">Email</td>
-                <td th:text="${client.nr_sauny}">Nr_sauny</td>
-                <td th:text="${client.nr_adresu}">Nr_adresu</td>
-            </tr>
-            </tbody>
 
-        </table>
 
-    </div>
 
 <!--    <div class="btn-box">-->
 <!--        <a th:href="@{/"></a>-->
