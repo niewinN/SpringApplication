@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index">Studio <span class="navbar-brand__color">Relaksu</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
+                </li>
+
+                <!--                <li class="nav-item active">-->
+                <!--                    <a class="nav-link" href="#">Main-->
+                <!--                        <span class="sr-only">(current)</span>-->
+                <!--                    </a>-->
+                <!--                </li>-->
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<div align="center">
+    <h1>Sauny</h1>
+
+    <a th:href="@{/new_sauna}">
+        <button class="btn btn-outline-">Dodaj nową saunę</button>
+    </a>
+
+    <table border="1" cellpadding="10">
+
+        <thead>
+        <tr>
+            <th>Nr sauny</th>
+            <th>Nazwa</th>
+            <th>Data założenia</th>
+            <th>Numer telefonu</th>
+            <th>Email</th>
+            <th>Nr adresu</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="sauna : ${listSauna}">
+            <td th:text="${sauna.nr_sauny}">nr_sauny</td>
+            <td th:text="${sauna.nazwa}">nazwa</td>
+            <td th:text="${sauna.data_zalozenia}">data_zalozenia</td>
+            <td th:text="${sauna.numer_telefonu}">numer_telefonu</td>
+            <td th:text="${sauna.email}">email</td>
+            <td th:text="${sauna.nr_adresu}">nr_adresu</td>
+            <td>
+                <a th:href="@{'/edit_sauna/' + ${sauna.nr_sauny}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete_sauna/' + ${sauna.nr_sauny}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

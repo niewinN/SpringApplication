@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+ <body>
+
+
+
+<!--<style th:inline="text">-->
+<!--    body{-->
+<!--        background: url([[@{/assets/img/img.png}]])-->
+<!--        no-repeat center center fixed;-->
+<!--    }-->
+<!--</style>-->
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index">Studio <span class="navbar-brand__color">Relaksu</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="#">Home-->
+<!--                        <span class="sr-only">(current)</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Login</a></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="header">
+    <div class="header-shadow"></div>
+        <div class="header-text">
+            <h1 class="header-text__title">Witaj na naszej stronie!</h1>
+            <p class="header-text__undertitle">Skorzystaj z usług, które oferujemy i dołącz do nas już <a class="header-link" th:href="@{/login}">dziś</a></p>
+        </div>
+</header>
+<!--Using images in page    -->
+<!-- <img th:src="@{/assets/img/img.png}" alt="Image" class="img-fluid"> -->
+
+<!--<div align="center">-->
+<!--    <h1>Klient</h1>-->
+
+<!--    <table border="1" cellpadding="10">-->
+
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Nr</th>-->
+<!--            <th>Telefon</th>-->
+<!--            <th>Email</th>-->
+
+<!--        </tr>-->
+<!--        </thead>-->
+
+<!--        <tbody>-->
+<!--        <tr th:each="client : ${listClient}">-->
+<!--            <td th:text="${client.Nr_klucza}">Nr</td>-->
+<!--            <td th:text="${client.Telefon}">Telefon</td>-->
+<!--            <td th:text="${client.Email}">Email</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+
+<!--    </table>-->
+
+<!--</div>-->
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+}
+
+.navbar {
+    padding: 2em;
+    z-index: 200;
+}
+
+.navbar-brand {
+    font-size: 3rem;
+}
+
+.navbar-brand__color {
+    color: orange;
+}
+
+.navbar-toggler {
+    font-size: 3rem;
+}
+
+
+.nav-item {
+    font-size: 2.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: orange;
+}
+
+.header {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("../img/main_1920.jpg");
+    background-position: center;
+    background-size: cover;
+    }
+
+.header-shadow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.header-link {
+    color: orange;
+}
+
+.header-text {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+.header-text__title {
+    font-size: 6rem;
+}
+
+.header-text__undertitle {
+    font-size: 3rem;
+}
+

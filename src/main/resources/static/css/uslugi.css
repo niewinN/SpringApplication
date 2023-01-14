@@ -1,0 +1,20 @@
+.carousel {
+    height: 50vh;
+}
+
+.services-box {
+    padding: 3em;
+}
+
+.carousel .carousel-item {
+  height: 500px;
+  position: relative;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}

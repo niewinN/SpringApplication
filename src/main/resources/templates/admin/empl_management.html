@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index">Studio <span class="navbar-brand__color">Relaksu</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
+                </li>
+
+                <!--                <li class="nav-item active">-->
+                <!--                    <a class="nav-link" href="#">Main-->
+                <!--                        <span class="sr-only">(current)</span>-->
+                <!--                    </a>-->
+                <!--                </li>-->
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<div align="center">
+    <h1>Pracownicy</h1>
+
+    <a th:href="@{/new_empl}">
+        <button class="btn btn-outline-">Dodaj nowego pracownika</button>
+    </a>
+
+    <table border="1" cellpadding="10">
+
+        <thead>
+        <tr>
+            <th>Nr pracownika</th>
+            <th>Imie</th>
+            <th>Drugie imie</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>Pesel</th>
+            <th>Płeć</th>
+            <th>Data zatrudnienia</th>
+            <th>Numer telefonu</th>
+            <th>Email</th>
+            <th>Numer konta</th>
+            <th>Nr sauny</th>
+            <th>Nr adresu</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="pracownik : ${listPracownik}">
+            <td th:text="${pracownik.nr_pracownika}">nr_pracownika</td>
+            <td th:text="${pracownik.imie}">imie</td>
+            <td th:text="${pracownik.drugie_imie}">drugie_imie</td>
+            <td th:text="${pracownik.nazwisko}">nazwisko</td>
+            <td th:text="${pracownik.data_urodzenia}">data_urodzenia</td>
+            <td th:text="${pracownik.pesel}">pesel</td>
+            <td th:text="${pracownik.plec}">plec</td>
+            <td th:text="${pracownik.data_zatrudnienia}">data_zatrudnienia</td>
+            <td th:text="${pracownik.numer_telefonu}">numer_telefonu</td>
+            <td th:text="${pracownik.email}">email</td>
+            <td th:text="${pracownik.numer_konta}">numer_konta</td>
+            <td th:text="${pracownik.nr_sauny}">nr_sauny</td>
+            <td th:text="${pracownik.nr_adresu}">Nr_adresu</td>
+            <td>
+                <a th:href="@{'/edit/' + ${pracownik.nr_pracownika}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${pracownik.nr_pracownika}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

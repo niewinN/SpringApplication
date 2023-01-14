@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index">Studio <span class="navbar-brand__color">Relaksu</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
+                </li>
+
+                <!--                <li class="nav-item active">-->
+                <!--                    <a class="nav-link" href="#">Main-->
+                <!--                        <span class="sr-only">(current)</span>-->
+                <!--                    </a>-->
+                <!--                </li>-->
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1>Nowa sauna</h1>
+
+<form action="#" th:action="@{/saveSauna}" th:object="${sauna}" method="post">
+    <table border="1" cellpadding = "10">
+        <tr>
+            <td>Numer sauny:</td>
+            <td><input type="text" th:field="*{nr_sauny}"></td>
+        </tr>
+
+        <tr>
+            <td>Nazwa:</td>
+            <td><input type="text" th:field="*{nazwa}"></td>
+        </tr>
+
+        <tr>
+            <td>Data założenia:</td>
+            <td><input type="text" th:field="*{data_zalozenia}"></td>
+        </tr>
+
+        <tr>
+            <td>Numer telefonu:</td>
+            <td><input type="text" th:field="*{numer_telefonu}"></td>
+        </tr>
+
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{email}"></td>
+        </tr>
+
+        <tr>
+            <td>Nr adresu:</td>
+            <td><input type="text" th:field="*{nr_adresu}"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+        </tr>
+    </table>
+</form>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>
