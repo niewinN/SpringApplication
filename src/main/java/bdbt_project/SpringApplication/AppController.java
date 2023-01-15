@@ -364,7 +364,7 @@ public class AppController implements WebMvcConfigurer {
 
 //        ------------------------------
 
-//        @RequestMapping("/edit_user_address/{nr_adresu}")
+//        @RequestMapping("/edit_address/70")
 //        public ModelAndView showEditUserAddressForm(@PathVariable(name = "nr_adresu") int nr_adresu) {
 //            ModelAndView mav = new ModelAndView(("user/edit_user_address"));
 //            Adres adres = daoAdres.get(nr_adresu);
@@ -373,12 +373,12 @@ public class AppController implements WebMvcConfigurer {
 //            return mav;
 //        }
 
-        @RequestMapping("/edit_user_address")
-        public String addNewUserAddress(Model model) {
-            Adres adres = new Adres();
-            model.addAttribute("adres", adres);
-            return "user/edit_user_address";
-        }
+//        @RequestMapping("/edit_user_address")
+//        public String addNewUserAddress(Model model) {
+//            Adres adres = new Adres();
+//            model.addAttribute("adres", adres);
+//            return "user/edit_user_address";
+//        }
 
         @RequestMapping(value = "/saveAdres2", method = RequestMethod.POST)
         public String saveUserAdres(@ModelAttribute("adres") Adres adres) {
@@ -386,13 +386,13 @@ public class AppController implements WebMvcConfigurer {
 
             return "redirect:/main_user";
         }
-
-//        @RequestMapping(value="/update_user_address", method = RequestMethod.POST)
-//        public String updateUserAddress(@ModelAttribute("adres") Adres adres) {
-//            daoAdres.update(adres);
 //
-//            return "redirect:/main_user";
-//        }
+        @RequestMapping(value="/update_user_address", method = RequestMethod.POST)
+        public String updateUserAddress(@ModelAttribute("adres") Adres adres) {
+            daoAdres.update(adres);
+
+            return "redirect:/main_user";
+        }
 
 
 

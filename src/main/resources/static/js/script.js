@@ -2,6 +2,6 @@ function successfullyLogout(){
 alert("Pomyślnie wylogowano");
 }
 
-function successfullyLogin() {
-alert("Pomyślnie zalogowano");
-}
+//function successfullyLogin() {
+//alert("Pomyślnie zalogowano");
+//}
