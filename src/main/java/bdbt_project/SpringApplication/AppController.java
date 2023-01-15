@@ -2,6 +2,7 @@ package bdbt_project.SpringApplication;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 //import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -335,10 +337,12 @@ public class AppController implements WebMvcConfigurer {
         }
 
         @RequestMapping(value="/update_address", method = RequestMethod.POST)
-        public String updateAddress(@ModelAttribute("adres") Adres adres) {
+        public String updateAddress(@ModelAttribute("adres") Adres adres, HttpServletRequest request) {
             daoAdres.update(adres);
-
-            return "redirect:/address_management";
+            if (request.isUserInRole("ADMIN")) {
+                return "redirect:/address_management";
+            }
+                return "redirect:/main_user";
         }
 
         @RequestMapping("/delete_address/{nr_adresu}")
@@ -373,12 +377,11 @@ public class AppController implements WebMvcConfigurer {
 //            return mav;
 //        }
 
-//        @RequestMapping("/edit_user_address")
-//        public String addNewUserAddress(Model model) {
-//            Adres adres = new Adres();
-//            model.addAttribute("adres", adres);
-//            return "user/edit_user_address";
-//        }
+        @RequestMapping("/edit_user_address")
+        public String addNewUserAddress(HttpServletRequest request) {
+
+            return "redirect:/edit_address/70";
+        }
 
         @RequestMapping(value = "/saveAdres2", method = RequestMethod.POST)
         public String saveUserAdres(@ModelAttribute("adres") Adres adres) {
@@ -386,7 +389,7 @@ public class AppController implements WebMvcConfigurer {
 
             return "redirect:/main_user";
         }
-//
+
         @RequestMapping(value="/update_user_address", method = RequestMethod.POST)
         public String updateUserAddress(@ModelAttribute("adres") Adres adres) {
             daoAdres.update(adres);
