@@ -27,6 +27,10 @@
                     <a class="nav-link" th:href="@{/index}">Home</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
+                </li>
+
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Login
                         <span class="sr-only">(current)</span>
@@ -39,10 +43,6 @@
 </nav>
 <div align="center">
 <div class="container container-form">
-
-    <div class="row form">
-        <div class="col-md-4 mt-5">
-
             <form class="form-box" method="post" th:action="@{/login}">
 
                 <div class="form-group">
@@ -55,17 +55,12 @@
                     <input id="password" type="password" placeholder="Podaj hasło" autocomplete="off" class="form-control" name="password"/>
                 </div>
 
-                <div th:if="${param.error}" style="color:red; margin-bottom:15px">
+                <div th:if="${param.error}" style="color:red; font-size: 12px">
                     ERROR: Nieprawidłowy login lub hasło!
                 </div>
 
                 <button class="btn btn-primary" type="submit" value="Sign In">Login</button>
             </form>
-
-
-
-        </div>
-    </div>
 </div>
 </div>
 

@@ -4,12 +4,13 @@
     <meta charset="UTF-8"/>
     <title>Error Page</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
+        <a class="navbar-brand" href="/index">Studio <span class="navbar-brand__color">Relaksu</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +26,7 @@
                     <div><b><p style="font-size:30px">Error</p></b></div>
                     <div><p style="font-size:24px">An unexpected error has occurred</p></div>
                 </div>
-                <button class="btn btn-primary" type="submit" value="Sign In">Back to home page</button>
+                <button style="border: 1px solid black; background-color: orange; padding: 10px 20px; border-radius: 8px; font-size: 2rem; font-weight: bold" class="btn btn-primary" type="submit" value="Sign In">Wróć do strony głównej</button>
             </form>
         </div>
     </div>

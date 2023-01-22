@@ -67,6 +67,11 @@ body {
     color: orange;
 }
 
+.header-link:hover {
+    color: gray;
+    text-decoration: none;
+}
+
 .header-text {
     position: absolute;
     z-index: 100;

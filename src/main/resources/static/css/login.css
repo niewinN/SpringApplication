@@ -2,28 +2,40 @@ body {
     //background-image: url('../img/login3.jpg');
     //background-position: center;
     //background-size: cover;
-    background-color: white;
+    background-image: linear-gradient(#F9D976, #F39F86);
 }
 
 .container-form {
     position: relative;
-    height: 100vh;
-}
-
-.form {
-    height: 100vh;
+    height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .form-box {
-    border: 2px solid orange;
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px black;
+    height: 360px;
+    width: 360px;
+    overflow: hidden;
 }
 
 label {
     font-size: 2.5rem;
     color: orange;
+    width: 80%;
+    text-align: left;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-group .form-control {
+    width: 80%;
+    border-radius: 8px;
 }
 
 .form-control {
@@ -32,8 +44,19 @@ label {
 }
 
 .btn {
-    margin-bottom: 1rem;
-    width: 100%;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    width: 80%;
     font-size: 2rem;
+    font-weight: bold;
     background-color: orange;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 15px black;
+    transition: background-color .3s;
+}
+
+.btn:hover {
+    background-color: #F39F86;
 }

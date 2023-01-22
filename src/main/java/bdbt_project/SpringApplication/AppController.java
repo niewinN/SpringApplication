@@ -50,14 +50,11 @@ public class AppController implements WebMvcConfigurer {
     }
 
 
-
 //    private JdbcTemplate jdbcTemplate;
 
 
-
     @Controller
-    public class DashboardController
-    {
+    public class DashboardController {
         @RequestMapping
                 ("/main"
                 )
@@ -67,37 +64,21 @@ public class AppController implements WebMvcConfigurer {
             (request.isUserInRole
                     ("ADMIN")) {
                 return "redirect:/main_admin";
-            }
-            else if
+            } else if
             (request.isUserInRole
                             ("USER")) {
                 return "redirect:/main_user";
-            }
-            else
-            {
+            } else {
                 return "redirect:/index";
             }
         }
+
         @RequestMapping("/")
         public String viewHomePage(Model model) {
             List<Client> listClient = dao.list();
             model.addAttribute("listClient", listClient);
             return "index";
         }
-
-//        @RequestMapping("/main_user")
-//        public String kutas(Model model) {
-//            List<Client> listClient = dao.list();
-//            model.addAttribute("listClient", listClient);
-//            return "user/main_user";
-//        }
-//
-//        @RequestMapping("/main_admin")
-//        public String kutas3(Model model) {
-//            List<Client> listClient = dao.list();
-//            model.addAttribute("listClient", listClient);
-//            return "admin/main_admin";
-//        }
 
 //        CUSTOMER MANAGEMENT
 
@@ -124,12 +105,15 @@ public class AppController implements WebMvcConfigurer {
             return mav;
         }
 
-        @RequestMapping(value="/update_customer", method = RequestMethod.POST)
-        public String updateCustomer(@ModelAttribute("client") Client client) {
+        @RequestMapping(value = "/update_customer", method = RequestMethod.POST)
+        public String updateCustomer(@ModelAttribute("client") Client client, HttpServletRequest request) {
             dao.update(client);
-
-            return "redirect:/customer_management";
+            if (request.isUserInRole("ADMIN")) {
+                return "redirect:/customer_management";
+            }
+            return "redirect:/main_user";
         }
+
 
         @RequestMapping("/delete_customer/{nr_klienta}")
         public String deleteCustomer(@PathVariable(name = "nr_klienta") int nr_klienta) {
@@ -177,7 +161,7 @@ public class AppController implements WebMvcConfigurer {
             return mav;
         }
 
-        @RequestMapping(value="/update", method = RequestMethod.POST)
+        @RequestMapping(value = "/update", method = RequestMethod.POST)
         public String updateEmpl(@ModelAttribute("pracownik") Pracownik pracownik) {
             daoEmpl.update(pracownik);
 
@@ -230,7 +214,7 @@ public class AppController implements WebMvcConfigurer {
             return mav;
         }
 
-        @RequestMapping(value="/update_sauna", method = RequestMethod.POST)
+        @RequestMapping(value = "/update_sauna", method = RequestMethod.POST)
         public String updateSauna(@ModelAttribute("sauna") Sauna sauna) {
             daoSauna.update(sauna);
 
@@ -283,7 +267,7 @@ public class AppController implements WebMvcConfigurer {
             return mav;
         }
 
-        @RequestMapping(value="/update_service", method = RequestMethod.POST)
+        @RequestMapping(value = "/update_service", method = RequestMethod.POST)
         public String updateSauna(@ModelAttribute("usluga") Usluga usluga) {
             daoUsluga.update(usluga);
 
@@ -336,13 +320,13 @@ public class AppController implements WebMvcConfigurer {
             return mav;
         }
 
-        @RequestMapping(value="/update_address", method = RequestMethod.POST)
+        @RequestMapping(value = "/update_address", method = RequestMethod.POST)
         public String updateAddress(@ModelAttribute("adres") Adres adres, HttpServletRequest request) {
             daoAdres.update(adres);
             if (request.isUserInRole("ADMIN")) {
                 return "redirect:/address_management";
             }
-                return "redirect:/main_user";
+            return "redirect:/main_user";
         }
 
         @RequestMapping("/delete_address/{nr_adresu}")
@@ -382,6 +366,12 @@ public class AppController implements WebMvcConfigurer {
 
             return "redirect:/edit_address/70";
         }
+
+        @RequestMapping("/edit_user_customer")
+        public String addNewUserCustomer(HttpServletRequest request) {
+
+            return "redirect:/edit_customer/161";
+        }
 //
 //        @RequestMapping(value = "/saveAdres2", method = RequestMethod.POST)
 //        public String saveUserAdres(@ModelAttribute("adres") Adres adres) {
@@ -396,15 +386,15 @@ public class AppController implements WebMvcConfigurer {
 //
 //            return "redirect:/main_user";
 //        }
-
-
-
-
-
-
-
-
     }
+
+
+
+
+
+
+
+
 
     @RequestMapping(value={"/main_admin"})
     public String showAdminPage(Model model) {
