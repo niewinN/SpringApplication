@@ -23,11 +23,20 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
+                    <a class="nav-link" th:href="@{/main_admin}">Zarządzanie</a>
                 </li>
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/index}">Home</a>-->
+<!--                </li>-->
 
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" th:href="@{/index}" onclick="successfullyLogout()" value="Sign Out" style="color:orange;">Wyloguj <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
                 </li>
 
                 <!--                <li class="nav-item active">-->
@@ -36,10 +45,10 @@
                 <!--                    </a>-->
                 <!--                </li>-->
 
-                <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
-                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b-->
+<!--                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>-->
+<!--                </li>-->
 
             </ul>
         </div>
@@ -47,12 +56,12 @@
 </nav>
 
 <div align="center">
-    <h1>Edytuj dane</h1>
+    <h1 class="title-edit">Edytuj dane</h1>
 
     <br/>
 
     <form action="#" th:action="@{/update_customer}" th:object="${client}" method="post">
-        <table border="1" cellpadding="10">
+        <table class="styled-table">
             <tr>
                 <td>Nr klienta:</td>
                 <td><input type="text" th:field="*{nr_klienta}" readonly="readonly"></td>
@@ -78,7 +87,7 @@
             </tr>
 
             <tr>
-                <td colspan="2" align="center"><button type="submit">Zapisz</button></td>
+                <td colspan="2" align="center"><button class="btn-special" type="submit">Zapisz</button></td>
             </tr>
         </table>
     </form>

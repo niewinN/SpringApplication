@@ -382,20 +382,20 @@ public class AppController implements WebMvcConfigurer {
 
             return "redirect:/edit_address/70";
         }
-
-        @RequestMapping(value = "/saveAdres2", method = RequestMethod.POST)
-        public String saveUserAdres(@ModelAttribute("adres") Adres adres) {
-            daoAdres.save(adres);
-
-            return "redirect:/main_user";
-        }
-
-        @RequestMapping(value="/update_user_address", method = RequestMethod.POST)
-        public String updateUserAddress(@ModelAttribute("adres") Adres adres) {
-            daoAdres.update(adres);
-
-            return "redirect:/main_user";
-        }
+//
+//        @RequestMapping(value = "/saveAdres2", method = RequestMethod.POST)
+//        public String saveUserAdres(@ModelAttribute("adres") Adres adres) {
+//            daoAdres.save(adres);
+//
+//            return "redirect:/main_user";
+//        }
+//
+//        @RequestMapping(value="/update_user_address", method = RequestMethod.POST)
+//        public String updateUserAddress(@ModelAttribute("adres") Adres adres) {
+//            daoAdres.update(adres);
+//
+//            return "redirect:/main_user";
+//        }
 
 
 

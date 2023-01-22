@@ -9,7 +9,6 @@ html {
 }
 
 body {
-    overflow: hidden;
     min-height: 100vh;
 }
 
@@ -90,3 +89,108 @@ body {
     font-size: 3rem;
 }
 
+.title-management {
+    margin-top: 5%;
+    text-transform: uppercase;
+}
+
+.title-edit {
+    margin-top: 3%;
+    text-transform: uppercase;
+    color: orange;
+}
+
+.button-add {
+    border: 2px solid orange;
+    background-color: #f3f3f3;
+        padding: 10px 30px;
+    transition: background-color: .3s
+}
+
+.link-add {
+    color: black;
+    font-size: 1.6em;
+    padding: 10px 30px;
+    transition: color .3s, text-decoration .3s;
+}
+
+.button-add:hover .link-add {
+      color: white;
+      text-decoration: none;
+}
+
+.button-add:hover {
+    background-color: orange;
+}
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+        font-size: 1.6em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: orange;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid orange;
+}
+
+.table-delete:hover {
+    color: gray;
+    text-decoration: none;
+}
+
+ .table-edit:hover {
+    color: gray;
+    text-decoration: none;
+}
+
+.table-delete {
+    color: red;
+}
+
+.table-edit {
+    color: green;
+}
+
+.btn-special {
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color: orange;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.btn-special:hover{
+ border-color: rgba(255,255,255,1);
+}

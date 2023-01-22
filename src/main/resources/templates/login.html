@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="../css/login.css">
 
 </head>
-<body>
-<div class="header-shadow"></div>
+<body class="main-page">
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -38,8 +37,7 @@
         </div>
     </div>
 </nav>
-
-
+<div align="center">
 <div class="container container-form">
 
     <div class="row form">
@@ -58,7 +56,7 @@
                 </div>
 
                 <div th:if="${param.error}" style="color:red; margin-bottom:15px">
-                    ERROR: Invalid username or password!
+                    ERROR: Nieprawidłowy login lub hasło!
                 </div>
 
                 <button class="btn btn-primary" type="submit" value="Sign In">Login</button>
@@ -68,6 +66,7 @@
 
         </div>
     </div>
+</div>
 </div>
 
 

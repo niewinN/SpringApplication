@@ -20,11 +20,16 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
+                    <a class="nav-link" th:href="@{/main_admin}">Zarządzanie</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/uslugi}">Usługi</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" th:href="@{/index}" onclick="successfullyLogout()" value="Sign Out" style="color:orange;">Wyloguj <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
                 </li>
 
                 <!--                <li class="nav-item active">-->
@@ -33,23 +38,23 @@
                 <!--                    </a>-->
                 <!--                </li>-->
 
-                <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
-                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b-->
+<!--                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>-->
+<!--                </li>-->
 
             </ul>
         </div>
     </div>
 </nav>
 <div align="center">
-    <h1>Usługi</h1>
+    <h1 class="title-management">Usługi</h1>
 
-    <a th:href="@{/new_service}">
-        <button class="btn btn-outline-">Dodaj nową usługę</button>
-    </a>
+    <button class="button-add">
+        <a class="link-add" th:href="@{/new_service}">Dodaj nową usługę</a>
+    </button>
 
-    <table border="1" cellpadding="10">
+    <table class="styled-table">
 
         <thead>
         <tr>
@@ -58,6 +63,7 @@
             <th>Opis</th>
             <th>Liczba miejsc</th>
             <th>Nr sauny</th>
+            <th>Edycja</th>
         </tr>
         </thead>
 
@@ -69,9 +75,9 @@
             <td th:text="${usluga.liczba_miejsc}">liczba_miejsc</td>
             <td th:text="${usluga.nr_sauny}">nr_sauny</td>
             <td>
-                <a th:href="@{'/edit_service/' + ${usluga.nr_uslugi}}">Edytuj</a>
+                <a class="table-edit" th:href="@{'/edit_service/' + ${usluga.nr_uslugi}}">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete_service/' + ${usluga.nr_uslugi}}">Usuń</a>
+                <a class="table-delete" th:href="@{'/delete_service/' + ${usluga.nr_uslugi}}">Usuń</a>
             </td>
         </tr>
         </tbody>
